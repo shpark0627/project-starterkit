@@ -1,10 +1,8 @@
 {
-    "permissions": {
-        "allow": [
-            "Bash",
-            "webSearch",
-            "webFetch"
-        ]
-    },
-    "outputStyle": "Explanatory"
+  "permissions": {
+    "allow": [
+      "Bash"
+    ]
+  },
+  "outputStyle": "default"
 }

@@ -42,9 +42,11 @@ export function HeroSection() {
 
           {/* CTA 버튼 */}
           <div className="mb-12 flex flex-col gap-4 sm:flex-row justify-center">
-            <Button size="lg" className="gap-2">
-              시작하기
-              <ArrowRight className="h-4 w-4" />
+            <Button size="lg" className="gap-2" asChild>
+              <a href="#quickstart">
+                시작하기
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </Button>
             <Button
               size="lg"

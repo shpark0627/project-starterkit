@@ -60,7 +60,9 @@ export function SiteHeader() {
             <Button variant="outline" size="sm" className="border-zinc-800">
               로그인
             </Button>
-            <Button size="sm">시작하기</Button>
+            <Button size="sm" asChild>
+              <a href="#quickstart">시작하기</a>
+            </Button>
           </div>
 
           {/* 모바일 메뉴 */}
@@ -89,7 +91,11 @@ export function SiteHeader() {
                   >
                     로그인
                   </Button>
-                  <Button className="w-full">시작하기</Button>
+                  <Button className="w-full" asChild>
+                    <SheetClose asChild>
+                      <a href="#quickstart">시작하기</a>
+                    </SheetClose>
+                  </Button>
                 </div>
               </div>
             </SheetContent>

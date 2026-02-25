@@ -57,7 +57,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 sm:py-32 md:py-40">
+    <section id="features" className="py-20 sm:py-32 md:py-40">
       <Container>
         <SectionHeader
           badge="특징"
