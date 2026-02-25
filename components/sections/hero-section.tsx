@@ -9,13 +9,13 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden py-20 sm:py-32 md:py-40">
       {/* 배경 그라디언트 */}
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-100 via-white to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-950 pointer-events-none" />
 
       <Container className="relative">
         <div className="mx-auto max-w-3xl text-center">
           {/* 배지 */}
           <div className="mb-6 inline-block">
-            <Badge variant="secondary" className="bg-zinc-800/50 text-zinc-300 hover:bg-zinc-800/70">
+            <Badge className="bg-black text-white dark:bg-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80">
               Modern Web Starter Kit
             </Badge>
           </div>
@@ -23,12 +23,12 @@ export function HeroSection() {
           {/* 제목 */}
           <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             <span className="block">
-              <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-300 dark:to-zinc-500 bg-clip-text text-transparent">
                 다음 프로젝트를 위한
               </span>
             </span>
             <span className="block mt-2">
-              <span className="bg-gradient-to-r from-zinc-400 via-zinc-300 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-900 dark:from-zinc-400 dark:via-zinc-300 dark:to-white bg-clip-text text-transparent">
                 완벽한 스택
               </span>
             </span>

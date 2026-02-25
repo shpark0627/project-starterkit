@@ -60,7 +60,7 @@ export function QuickStartSection() {
           {/* 우측: 설치 명령 */}
           <div className="space-y-6">
             <Tabs defaultValue="npm" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 bg-zinc-900 border border-zinc-800">
+              <TabsList className="grid w-full grid-cols-3 bg-zinc-100 border border-zinc-300 dark:bg-zinc-900 dark:border-zinc-800">
                 <TabsTrigger value="npm">npm</TabsTrigger>
                 <TabsTrigger value="pnpm">pnpm</TabsTrigger>
                 <TabsTrigger value="yarn">yarn</TabsTrigger>
@@ -74,9 +74,9 @@ export function QuickStartSection() {
             </Tabs>
 
             {/* 주의사항 */}
-            <Alert className="border-zinc-800 bg-zinc-900/50">
+            <Alert className="border-zinc-300 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900/50">
               <AlertCircle className="h-4 w-4 text-yellow-500" />
-              <AlertDescription className="text-zinc-300">
+              <AlertDescription className="text-zinc-700 dark:text-zinc-300">
                 Node.js 18.17 이상이 필요합니다
               </AlertDescription>
             </Alert>

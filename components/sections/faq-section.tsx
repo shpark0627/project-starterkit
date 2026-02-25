@@ -49,10 +49,10 @@ export function FaqSection() {
                 value={`faq-${idx}`}
                 className="border-border"
               >
-                <AccordionTrigger className="hover:text-foreground">
+                <AccordionTrigger className="hover:text-foreground px-4">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70">
+                <AccordionContent className="text-foreground/70 px-4 pb-4">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

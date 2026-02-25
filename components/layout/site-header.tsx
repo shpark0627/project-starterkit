@@ -20,12 +20,12 @@ const navItems = [
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useThemeToggle();
+  const { theme, toggleTheme, mounted } = useThemeToggle();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="px-4 py-4 md:px-8">
-        <div className="flex items-center justify-between gap-4">
+        <div className="relative flex items-center justify-between">
           {/* 왼쪽 영역 - 로고 */}
           <div className="flex-shrink-0">
             <a
@@ -36,8 +36,8 @@ export function SiteHeader() {
             </a>
           </div>
 
-          {/* 중앙 영역 - 네비게이션 */}
-          <nav className="hidden md:flex flex-1 justify-center items-center gap-8">
+          {/* 중앙 영역 - 네비게이션 (절대 중앙 고정) */}
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -51,13 +51,15 @@ export function SiteHeader() {
 
           {/* 오른쪽 영역 - CTA */}
           <div className="hidden md:flex items-center gap-4 flex-shrink-0">
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {theme === "dark" ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
+            {mounted && (
+              <Button variant="ghost" size="icon" onClick={toggleTheme}>
+                {theme === "dark" ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+              </Button>
+            )}
             <Button variant="outline" size="sm">
               로그인
             </Button>
