@@ -1,22 +1,29 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useLayoutEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export function useThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted] = useState(() => {
-    // 클라이언트에서만 true, 서버 사이드 렌더링 시 false
-    return typeof window !== "undefined";
-  });
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // useLayoutEffect: DOM 업데이트 전에 실행되어 hydration 문제 해결
+  // hydration 오류 방지를 위한 의도적 패턴: 초기 마운트 감지
+  useLayoutEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  }, [theme, setTheme]);
+    // mounted 후에만 테마 변경 가능
+    if (mounted) {
+      setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    }
+  }, [mounted, resolvedTheme, setTheme]);
 
-  // hydration 오류 방지: 마운트 전까지는 dark 고정
+  // hydration 오류 방지: 마운트 전까지 resolvedTheme 미사용
   return {
-    theme: mounted ? (theme || "dark") : "dark",
+    theme: mounted ? resolvedTheme || "dark" : "dark",
     toggleTheme,
     mounted,
   };
