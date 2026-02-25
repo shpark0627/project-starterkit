@@ -40,8 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Claude AI 개인 설정
+# Claude AI 개인 설정 (커스텀 커맨드는 제외)
 .claude/
+!.claude/commands/
+!.claude/commands/*.md
 
 # 스크린샷 및 기타 개발 아티팩트
 *.png
