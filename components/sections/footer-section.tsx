@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function FooterSection() {
   return (
-    <footer id="faq" className="py-20 sm:py-24">
+    <footer id="footer" className="py-20 sm:py-24">
       <Container>
         <Separator className="mb-12 bg-zinc-800" />
 

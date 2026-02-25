@@ -164,7 +164,7 @@ export function StackDetailSection() {
         </div>
 
         {/* FAQ 섹션 */}
-        <div className="mt-16 max-w-2xl mx-auto">
+        <div id="faq" className="mt-16 max-w-2xl mx-auto">
           <h3 className="mb-6 text-xl font-semibold text-center">
             자주 묻는 질문
           </h3>

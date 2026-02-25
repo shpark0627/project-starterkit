@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 
 interface UseIntersectionOptions {
   threshold?: number | number[];
@@ -10,7 +10,7 @@ interface UseIntersectionOptions {
 
 export function useIntersection(
   options: UseIntersectionOptions = {}
-): [React.RefObject<HTMLDivElement | null>, boolean] {
+): [RefObject<HTMLDivElement | null>, boolean] {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const hasBeenVisible = useRef(false);
