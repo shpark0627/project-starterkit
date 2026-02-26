@@ -1,12 +1,31 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 interface ConfirmOptions {
   title?: string;
   description: string;
   confirmText?: string;
   cancelText?: string;
+}
+
+// 권한 요청 함수
+async function requestNotificationPermission(): Promise<boolean> {
+  if (!("Notification" in window)) {
+    console.warn("브라우저가 알림을 지원하지 않습니다.");
+    return false;
+  }
+
+  if (Notification.permission === "granted") {
+    return true;
+  }
+
+  if (Notification.permission !== "denied") {
+    const permission = await Notification.requestPermission();
+    return permission === "granted";
+  }
+
+  return false;
 }
 
 interface ConfirmState {
@@ -29,9 +48,22 @@ export function useConfirm(): UseConfirmReturn {
     resolve: null,
   });
 
+  // 초기화: 알림 권한 요청
+  useEffect(() => {
+    requestNotificationPermission();
+  }, []);
+
   const confirm = useCallback((options: ConfirmOptions): Promise<boolean> => {
     return new Promise((resolve) => {
       setState({ isOpen: true, options, resolve });
+
+      // 알림 표시
+      if ("Notification" in window && Notification.permission === "granted") {
+        new Notification(options.title || "확인", {
+          body: options.description,
+          icon: "/favicon.ico",
+        });
+      }
     });
   }, []);
 
