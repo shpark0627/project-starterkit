@@ -2,8 +2,13 @@
   "permissions": {
     "allow": [
       "Bash",
-      "mcp__playwright__browser_navigate"
+      "mcp__playwright",
+      "mcp__sequential-thinking"
     ]
   },
-  "outputStyle": "default"
+  "enabledMcpjsonServers": [
+    "sequential-thinking"
+  ],
+  "outputStyle": "default",
+  "enableAllProjectMcpServers": true
 }
