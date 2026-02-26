@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Menu, Moon, Sun } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -9,7 +9,6 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
-import { useThemeToggle } from "@/hooks/use-theme-toggle";
 
 const navItems = [
   { label: "특징", href: "#features" },
@@ -20,7 +19,6 @@ const navItems = [
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme, mounted } = useThemeToggle();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
@@ -51,15 +49,6 @@ export function SiteHeader() {
 
           {/* 오른쪽 영역 - CTA */}
           <div className="hidden md:flex items-center gap-4 flex-shrink-0">
-            {mounted && (
-              <Button variant="ghost" size="icon" onClick={toggleTheme}>
-                {theme === "dark" ? (
-                  <Sun className="h-4 w-4" />
-                ) : (
-                  <Moon className="h-4 w-4" />
-                )}
-              </Button>
-            )}
             <Button variant="outline" size="sm">
               로그인
             </Button>

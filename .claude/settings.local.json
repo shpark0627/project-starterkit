@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash"
+      "Bash",
+      "mcp__playwright__browser_navigate"
     ]
   },
   "outputStyle": "default"
